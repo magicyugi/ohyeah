@@ -1,0 +1,859 @@
+﻿
+
+<!DOCTYPE >
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head > 
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+    <title></title>  
+    
+    <style type="text/css">
+        li
+        {
+            float: left;
+            padding: 5px;
+            height: 40px;
+        }
+
+            li.basic
+            {
+                float: none;
+                margin-left: 280px;
+            }
+
+            li.normalli
+            {
+                text-align: right;
+                width: 40%;
+                height: 40px;
+                padding-top: 5px;
+                padding-bottom: 5px;
+            }
+
+            li.allli
+            {
+                text-align: right;
+                width: 80%;
+                padding-top: 5px;
+                margin-left: 10px;
+                padding-bottom: 5px;
+            }
+
+            li.comboli
+            {
+                text-align: right;
+                width: 40%;
+                height: 40px;
+                padding-top: 9px;
+                padding-bottom: 9px;
+            }
+
+        label, input
+        {
+            font-size: 20px;
+        }
+       
+    </style>
+    <link href="./media/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>	
+    <link rel="stylesheet" type="text/css" href="./media/css/datepicker.css">
+    <link rel="stylesheet" type="text/css" href="./media/css/datetimepicker.css">
+    <link href="./media/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"/>	
+    <link href="./media/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>	
+    <link href="./media/css/style-metro.css" rel="stylesheet" type="text/css"/>
+    <link href="./media/css/style.css" rel="stylesheet" type="text/css"/>	
+    <link href="./media/css/style-responsive.css" rel="stylesheet" type="text/css"/>
+    <link href="./media/css/default.css" rel="stylesheet" type="text/css" id="style_color"/>	
+    <link href="./media/css/uniform.default.css" rel="stylesheet" type="text/css"/>
+    <link href="./media/css/bootstrap-switch.css" rel="stylesheet" type="text/css" />	
+    <link rel="stylesheet" type="text/css" href="./media/css/select2_metro.css" />	
+    <link rel="stylesheet" type="text/css" href="./media/css/chosen.css" />	
+    <link rel="shortcut icon" href="./media/image/favicon.ico" /> 
+    
+    <script src="./media/js/jquery-1.10.1.min.js" type="text/javascript"></script>
+
+    <script src="./common/js/Common.js" type="text/javascript"></script>
+    <script src="./common/js/jquery.hotkeys-0.7.9.min.js" type="text/javascript"></script>
+    
+    <script src="./media/js/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
+    <script src="./media/js/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>      	
+    <script src="./media/js/bootstrap.min.js" type="text/javascript"></script>	 
+    
+    <script type="text/javascript" src="./media/js/bootstrap-datepicker.js"></script> 	
+    <script type="text/javascript" src="./media/js/date.js"></script> 
+    <script type="text/javascript" src="./media/js/bootstrap-datetimepicker.js"></script> 	
+    <script type="text/javascript" src="./media/js/bootstrap-timepicker.js"></script> 	
+    <script src="./media/js/jquery.slimscroll.min.js" type="text/javascript"></script>	
+    <script src="./media/js/jquery.blockui.min.js" type="text/javascript"></script>  
+    <script src="./media/js/jquery.cookie.min.js" type="text/javascript"></script>	
+    <script src="./media/js/jquery.uniform.min.js" type="text/javascript" ></script>
+    <script src="./media/js/jquery.validate.min.js" type="text/javascript"></script>
+    <script src="./media/js/additional-methods.min.js" type="text/javascript"></script>
+    <script src="./media/js/jquery.bootstrap.wizard.min.js" type="text/javascript"></script>
+    <script src="./media/js/chosen.jquery.min.js" type="text/javascript"></script>
+    <script src="./media/js/select2.min.js" type="text/javascript"></script>
+    <script src="./media/js/app.js" type="text/javascript"></script>
+    <script src="./media/js/bootstrap-switch.js" type="text/javascript"></script>
+    <script src="./media/js/form-wizard.js" type="text/javascript"></script> 
+  
+    <script type="text/javascript">
+        var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-37564768-1']); _gaq.push(['_setDomainName', 'keenthemes.com']); _gaq.push(['_setAllowLinker', true]); _gaq.push(['_trackPageview']); (function () { var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s); })();
+    </script>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />	
+    <meta content="" name="description" />	
+    <meta content="" name="author" />    
+    <script type="text/javascript">
+        var url = "http://www.3usoft.com:8030/View/Mobile/Ajax.aspx";
+        var namecode = "Customer";
+        var g5value = 0;
+        var g5;
+        var $topLoader;
+        var username = "123";
+        var usercode = "";
+        var warehousecode = "";
+        var code = "";//507eacac-18ec-462b-a1c8-58a8d4fdf7f0
+
+        function returnFalse() {
+        }
+        $(function () {
+           
+            // initiate layout and plugins
+            App.init();
+            FormWizard.init();  
+            usercode = window.UserCode.toString();
+            code = window.Ccode.toString();
+            warehousecode = window.WareHouseCode.toString();
+            appendHM(30);
+            $(".form_datetime").datepicker({
+                format: 'yyyy-mm-dd',
+            });
+
+            $("#txtCname").focus();
+
+            $(".fieldItem").bind('keydown', 'return', function () {
+                var txttabindex = parseInt($(this).attr('tabindex')) + 1;
+                $("#divtabs").find("input[tabindex=" + txttabindex + "]").focus();
+            }).bind('keydown', 'tab', function () {
+                return false;
+            }); 
+            $.ajax({
+                url: url,
+                dataType: "jsonp",
+                data: "type=customerdetail&WarehouseCode=" + warehousecode+"&code="+code,
+                success: function (res) { 
+                    var msg = res[0].rows;
+                    var result = "";
+                    for (var i = 0; i < msg.split(',').length; i++) {
+                        var value = "";
+                        if (msg.split(',')[i].split(':').length == 2) {
+                            value = msg.split(',')[i].split(':')[1];
+                        }
+                        result += "<div class='control-group'>"
+                                      + "<label class='control-label'>" + msg.split(',')[i].split(':')[0]
+                                        + ":</label> <div class='controls'>"
+                                      + "<input type='text' class='span6 m-wrap fieldItem' name='CText" + i
+                                      + "'  id='txtCText" + i + "'   field='CText" + i + "' value='" + value + "' /> </div></div>";
+                    }
+
+                    $("#tab2").html(result);
+                }
+            });
+
+            $.ajax({
+                url: url,
+                dataType: "jsonp", 
+                type: "post",
+                data: "type=dropdown&WarehouseCode=" + warehousecode,
+                success: function (msg) {
+                        var data1= eval(msg)[1].item1
+                        var txtcsc=document.getElementById('txtClientSourceCode');  
+                        for (var i = 0; i < data1.length; i++) {
+                            txtcsc.options.add(new Option(data1[i]["Cname"],data1[i]["Code"]));
+                        }
+                        var data1 = eval(msg)[5].item5
+                        var txtcsc = document.getElementById('txtIntentionLevel');
+                        for (var i = 0; i < data1.length; i++) {
+                            txtcsc.options.add(new Option(data1[i]["Cname"], data1[i]["Code"]));
+                        }
+                      // var data5 = eval(msg)[5].item1
+  
+                    ////添加一个选项  
+                    
+                    //    data: eval(msg)[1].item1,
+                    //    valueField: 'Code',
+                    //    textField: 'Cname'
+                 
+                    //$('#txtthirdCode').combobox({
+                    //    data: eval(msg)[3].item3,
+                    //    valueField: 'Code',
+                    //    textField: 'Cname'
+                    //});
+                        if (code != undefined && code != "") {
+                            LoadCustomerData(url, code);
+                        }
+                    
+                }
+            }); 
+            $.ajax({
+                url: url,
+                data:'type=PGrid&code=' + code+'&WarehouseCode=' + warehousecode,
+                dataType: "jsonp", 
+                success: function (msg) {
+                    appRows(msg);
+                }
+            });
+            
+            $(".back-button").click(function () {
+                var backtype = "";
+                if (request("type") == null || request("type") == "") backtype = "?ProcessFlag=" + request("ProcessFlag");
+                if ($.trim($("#txtTitle").text()) == "意向登记") window.history.go(-1);
+                else
+                    window.location.href = "CustomerList.aspx" + backtype;
+            });
+            $('#txtClientSourceCode').combobox({
+                onChange: function (newValue, oldValue) {
+                    if (newValue == 0) {
+                        $("#hidli").css("display", "block"); $("#hidli1").css("display", "block");
+                        $("#hidli2").css("display", "none");
+                        $("#txtIntroduceName").select();
+
+                    }
+                    else if (newValue == 1) {
+                        $("#hidli2").css("display", "block");
+                        $("#hidli").css("display", "none"); $("#hidli1").css("display", "none");
+                    }
+                    else { $("#hidli").css("display", "none"); $("#hidli1").css("display", "none"); $("#hidli2").css("display", "none"); }
+                }
+            });
+            var today = new Date();
+            var date = AddDays(today, 7);
+            var day = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
+            //$('#txtAlertDate').datebox('setValue', day);
+            //            if (request('addr') != "") { $("#txtAddress").val(decodeURI(request('addr'))); } 
+            //            else getLocation(); 
+            
+            
+        });
+        /*加载所要编辑的数据*/
+        /* 
+        url : ajax链接
+        id : 所编辑的数据Code 
+        */
+        function LoadCustomerData(url, id) {
+            $.ajax({
+                url: url,
+                dataType: "jsonp",
+                data: "type=detail&code=" + code,
+                success: function (msg) {
+                    var result = msg[0];
+                    
+                    for (var i = 0; i < $(".fieldItem").length; i++) {
+                        var txtValue = result[$(".fieldItem").eq(i).attr("field")];
+
+                        if ($(".fieldItem").eq(i).attr("type") == "combo" && txtValue != undefined) {
+                            $(".fieldItem").eq(i).combobox("setValue", txtValue);
+                        }
+                        else if ($(".fieldItem").eq(i).attr("class").split(' ')[0] == "easyui-datebox" && txtValue != undefined) {
+                            $(".fieldItem").eq(i).datebox("setValue", txtValue);
+                        }
+                        else if ($(".fieldItem").eq(i).attr("id") == "txtHM" && txtValue != undefined) {
+                            if (txtValue.length < 4) txtValue += "0";
+                            $(".fieldItem").eq(i).prop("value", txtValue);
+
+                        }
+                        else {
+                            if (txtValue != undefined)
+                                $(".fieldItem").eq(i).val(txtValue);
+                            if (txtValue == "") {
+                                $(".fieldItem").eq(i).parent(".checkvisible").css("display", "none");
+                            }
+                            else
+                                $(".fieldItem").eq(i).parent(".checkvisible").css("display", "block");
+                        }
+                    }
+                },
+                error: function (msg) {
+                    //alert( msg)
+                }
+            })
+        }
+        function getLocation() {
+
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition, showError);
+            }
+            else { alert("你无法使用谷歌地图定位"); }
+        }
+        function showPosition(position) {
+            $.ajax({
+                type: "get",
+                dataType: "jsonp",
+                url: "Ajax.aspx?type=GPS&position=" + position.coords.latitude + "," + position.coords.longitude + "&random=" + Math.random(),
+                success: function (result) {
+                    var msg = $.parseJSON(result);
+                    if (msg.result.formatted_address != null && msg.result.formatted_address != "undifend" && msg.result.formatted_address != "" && $("#txtAddress").val() == "")
+                        $("#txtAddress").val(msg.result.formatted_address);
+                }
+            });
+        }
+        function showError(error) {
+            switch (error.code) {
+                case error.PERMISSION_DENIED:
+                    x.innerHTML = "User denied the request for Geolocation."
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    x.innerHTML = "Location information is unavailable."
+                    break;
+                case error.TIMEOUT:
+                    x.innerHTML = "The request to get user location timed out."
+                    break;
+                case error.UNKNOWN_ERROR:
+                    x.innerHTML = "An unknown error occurred."
+                    break;
+            }
+        }
+        function btnsave() { 
+            //$("#txtClientSource").val($("#txtClientSourceCode").combobox("getText"));
+            //$("#txtthird").val($("#txtthirdCode").combobox("getText"));
+            var txttype = "";
+            if (code != undefined && code != "") txttype = "edit";
+            else txttype = "add";
+            addckbox();
+            
+            AjaxSaveOperate("type=" + txttype + "&UserCode=" + usercode + "&WarehouseCode=" + warehousecode + "&code=" + code + "&id=&" + $("#submit_form").serialize() + "&AlertDate=" + $("#txtAlertDate").val() + "&ClientSource=" + $("#txtClientSourceCode").val() + "&IntentionLevelCode=" + $("#txtIntentionLevel").val(), url, "", "", "保存成功！", "保存失败！", "CustomerEdit_Phone.aspx?code=" + code + "&WarehouseCode=" + warehousecode + "&UserCode=" + usercode + "&rd=" + Math.random());
+
+        }
+        var topLoaderRunning = false;
+
+
+        function addckbox() {
+            var oldvalue = g5value;
+            g5value = 0;
+            var txtvalue = "";
+            var count = -1;
+            var $row = $("#accordion1 tbody").find("tr").not(".emptyrow");
+            for (var i = 0; i < $row.length; i++) {
+                var $col = $row.eq(i).find("td");
+                if ($col.eq(5).find("input").prop("checked")) {
+                    txtvalue += $col.eq(2).text() + "-" + $col.eq(3).text() + "-" + $col.eq(1).text() + "-" + $col.eq(0).text() + ",";
+                    g5value += parseFloat($col.eq(4).text());
+                } 
+                
+          
+                //if ($col.prop("checked")) {
+                //    txtvalue += rows[i].Pcode + "-" + rows[i].Pname + "-" + rows[i].Code + "-" + rows[i].Cname + ",";
+                //    count++;
+                //    g5value += parseFloat(rows[i].score);
+                //}
+            }
+            
+            $("#txtValue").val(txtvalue);
+            $("#txtScore").val(g5value);
+            
+        }
+        function allckonclick(pcode, obj) {
+            var rows = $('#Pgrid').datagrid('getRows');
+            var $obj = $(obj);
+            var chks = $("input[name='ckId']");
+            var txtck = $("a[name='txtck']");
+            if ($obj.prop("checked")) {
+                for (var i = 0; i < rows.length; i++) {
+                    if (rows[i].Pcode == pcode) {
+                        $(chks[i]).prop("checked", 'true');
+                        $(txtck[i]).text('完成');
+                    }
+                }
+            } else {
+                for (var i = 0; i < rows.length; i++) {
+                    if (rows[i].Pcode == pcode) {
+                        $(chks[i]).prop("checked", '');
+                        $(txtck[i]).text('未完成');
+                    }
+                }
+            }
+            forck();
+
+        }
+        /*Ajax异步提交操作*/
+        /* 
+        data : 传入参数
+        url：调用链接
+        gridid：表格ID
+        winid：窗口ID
+        successmsg：成功消息
+        errormsg：错误消息
+        */
+        function AjaxSaveOperate(data, url, gridid, winid, successmsg, errormsg, redirecturl) {
+             
+            $.ajax({
+                url: url,
+                dataType: "jsonp",
+                type: "post",
+                data: data,
+                success: function (res) {
+                    var msg = res[0].rows;
+                    if (msg.indexOf("fail:") == -1) {
+                        alert(successmsg);
+                    }
+                    else {
+                        alert(msg.split(':')[1]);
+                    }
+
+                    window.location.reload();
+                },
+                error: function (msg) {
+                    alert(errormsg)
+                }
+            })
+        }
+//        <div class="accordion-group">
+//          <div class="accordion-heading">
+//          <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion1" data-target="#collapse_2">
+//            <i class="icon-angle-left"></i>
+//               Collapsible Group Item #2
+//             </a>
+//    </div>
+//    <div id="collapse_2" class="accordion-body collapse" style="height: 0px;">
+//   <div class="accordion-inner">
+//   <table class="table table-striped  table-bordered dataTable" id="Table1" aria-describedby="sample_editable_1_info">
+//  <thead>
+//  </thead>
+//  <tbody role="alert" aria-live="polite" aria-relevant="all">
+//            <tr class="even">
+//              <td class=" sorting_1">lisa</td>
+//              <td >
+//             <div class="switch" data-on-label="<i class='icon-ok icon-white'></i>" data-off-label="<i class='icon-remove'></i>">
+//              <input type="checkbox" name="my-checkbox" checked />
+//          </div></td>
+//          </tr></tbody></table>
+//              </div>
+//          </div>
+//      </div>
+        //tab3动态生成
+        function appRows(data) {
+            var type = ""
+            var addproduct = $("");
+            addproduct.append()
+            for (var i = 0; i < data.length; i++) {
+                var $str = $(data[i]);
+                var txtcheck = "<input type='checkbox' id='cb_" + i + "' name='my-checkbox'   />";
+                if ($str.eq(0).attr('clCode') !=null) {
+                    txtcheck = "<input type='checkbox' id='cb_" + i + "' name='my-checkbox'   checked />";
+                }
+                if (type == "" || type != $str.eq(0).attr('Pname')) {
+                    $("#accordion1").append("<div class='accordion-group'><div class='accordion-heading'>"
+                           +"<a class='accordion-toggle collapsed' data-toggle='collapse' data-parent='#accordion1' data-target='#collapse_"+i+"'>"
+                           +"<i class='icon-angle-left'></i>"
+                           + $str.eq(0).attr('Pname')
+                           + "</a></div>"
+                           + "<div id='collapse_"+i+"' class='accordion-body collapse' style='height: 0px;'>"
+                           + "<div class='accordion-inner'>"
+                           +"<table class='table table-striped  table-bordered dataTable' id='"+ $str.eq(0).attr('Pcode')+"' aria-describedby='sample_editable_1_info'>"
+                           + "<thead></thead>"
+                           +"<tbody role='alert' aria-live='polite' aria-relevant='all'>"
+                           +"<tr class='even'>"
+                           + "<td class='sorting_1'>" + $str.eq(0).attr('Cname') + "</td>"
+                           + "<td style='display:none;'>" + $str.eq(0).attr('Code') + "</td>"
+                           + "<td style='display:none;'>" + $str.eq(0).attr('Pcode') + "</td>"
+                           + "<td style='display:none;'>" + $str.eq(0).attr('Pname') + "</td>"
+                           + "<td style='display:none;'>" + $str.eq(0).attr('score') + "</td>"
+                           +"<td><div class='switch' data-on-label='<i class=\"icon-ok icon-white\"></i>' data-off-label='<i class=\"icon-remove\"></i>'>"
+                           + txtcheck
+                           +"</div></td>"
+                           + "</tr></tbody></table></div></div></div>");
+
+                    type = $str.eq(0).attr('Pname');
+                  
+                }
+                else {
+                    $("#" + $str.eq(0).attr('Pcode') + "   tbody").append("<tr class='even'>"
+                           + "<td class='sorting_1'>" + $str.eq(0).attr('Cname') + "</td>"
+                           + "<td style='display:none;'>" + $str.eq(0).attr('Code') + "</td>"
+                           + "<td style='display:none;'>" + $str.eq(0).attr('Pcode') + "</td>"
+                           + "<td style='display:none;'>" + $str.eq(0).attr('Pname') + "</td>"
+                           + "<td style='display:none;'>" + $str.eq(0).attr('score') + "</td>"
+                           + "<td >"
+                           + "<div class='switch' data-on-label='<i class=\"icon-ok icon-white\"></i>' data-off-label='<i class=\"icon-remove\"></i>'>"
+                           + txtcheck
+                           + "</div></td>"
+                           + "</tr>");
+                }
+
+                $("input[ name=my-checkbox]").bootstrapSwitch({ onText: "√", offText: "×" });
+            }
+        }
+        //循环取值
+        function forck(type) {
+            var oldvalue = g5value;
+            g5value = 0;
+            var txtvalue = "";
+            var count = -1;
+            var chks = $("input[name='ckId']");
+            var txtck = $("a[name='txtck']");
+            var rows = $('#Pgrid').datagrid('getRows');
+            for (var i = 0; i < chks.length; i++) {
+                if ($(chks[i]).prop("checked")) {
+                    txtvalue += rows[i].Pcode + "-" + rows[i].Pname + "-" + rows[i].Code + "-" + rows[i].Cname + ",";
+                    count++;
+                    g5value += parseFloat(rows[i].score);
+                }
+            }
+            if (count != -1 && type != 1) {
+                if (rows[count].Remark2 != null && rows[count].Remark2 != "") {
+                    var myDate = new Date();
+                    var txtdate = parseInt(myDate.getDate()) + parseInt(rows[count].Remark2);
+                    //myDate.setDate(txtdate);
+                    //$("#txtAlertDate").datebox("setValue", myDate.getFullYear() + '-' + (myDate.getMonth() + 1) + '-' + myDate.getDate());
+                }
+                else {
+                    //$("#txtAlertDate").datebox("setValue", "");
+                }
+            }
+
+            g5value = Math.round(g5value);
+
+            $("#txtValue").val(txtvalue);
+            $("#txtScore").val(g5value);
+
+            var txtprocess = request("processflag");
+
+            if (txtprocess != "") txtprocess = parseInt(request("processflag")) - 1;
+            $("#txtCustomerLevel").val(txtprocess);
+
+        }
+        function ckonclick(index, obj) {
+            //            var txtvalue = "";
+            //            var chks = $("input[name='ckId']"); 
+            var txtck = $("a[name='txtck']");
+            //            var rows = $('#Pgrid').datagrid('getRows');
+            if ($(obj).prop("checked")) {
+                $(txtck[index]).text('完成');
+            }
+            else {
+                $(txtck[index]).text('未完成');
+            }
+            forck();
+        }
+    </script>
+<!--         <script>
+             jQuery(document).ready(function () {
+                 // initiate layout and plugins
+                 App.init();
+                 alert(window.MyContent.getContent());
+                 FormWizard.init();
+             });</script>	
+    	<!-- BEGIN GLOBAL MANDATORY STYLES -->	
+   
+</head>
+<body id="showbody" style="  background-color:White " >
+ 
+ <!--    <div id="tablediv" style="position:absolute;top: -1000px;left: 10px;">
+            <table id="Pgrid" class="easyui-datagrid"  style="width:300px;height:300px"
+                data-options=" 
+                    singleSelect: true,
+                    rownumbers:true, 
+                    view:groupview,
+                    url: 'CallAjax.aspx?type=PGrid&code=' + code+'&WarehouseCode=' + warehousecode,
+                    onLoadSuccess: function (data) { 
+                            forck();
+                    },
+                    groupField:'Pname', 
+                    groupFormatter:function(value,rows){
+                        return '<a style=color:gray>'+value +'</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type=\'checkbox\' onclick=\'allckonclick(&quot;'+rows[0].Pcode+'&quot;,this);\' />该项全选';
+                    } 
+                ">
+            <thead>
+                <tr>
+                    <th data-options="field:'ID',hidden:true,width:120">ID</th>
+                    <th data-options="field:'Pname',hidden:true,width:120">父级</th>
+                    <th data-options="field:'Pcode',hidden:true,width:120">父级编号</th>
+                    <th data-options="field:'Code',hidden:true,width:120">编号</th>
+                    <th data-options="field:'VCode',width:120,hidden:true">编号</th>
+                    <th data-options="field:'Cname',width:120">名称</th> 
+                    <th data-options="field:'Remark2',width:120,hidden:true">Remark2</th>
+                    <th data-options="field:'score',width:120,hidden:true">Score</th>
+                    <th data-options="field:'clCode',width:120,formatter: function(value,row,index){  var txtsp;var txtreturn='<input type=\'checkbox\'  name=\'ckId\' onclick=\'ckonclick('+index+',this);\' />&nbsp;&nbsp;<a name=\'txtck\'>未完成</a>';if(value!=null){txtsp=value;if(row.Code==txtsp){txtreturn='<input type=\'checkbox\'  checked=\'checked\' name=\'ckId\'  onclick=\'ckonclick('+index+',this);\' />&nbsp;&nbsp;<a name=\'txtck\'>完成</a>';}} return txtreturn;}">是否完成</th>
+                </tr>
+            </thead>
+        </table>      
+       
+     </div> -->         
+    <div  id="nipic_search" class="tipSwitch" style="top:112px;left:990px; z-index:100;"></div> 
+    <div class="row-fluid"> 
+	<div class="span12"> 
+		<div class="portlet box blue" id="form_wizard_1"> 
+    <div class="portlet-body form">
+
+	    <form class="form-horizontal " id="submit_form" novalidate="novalidate" >
+
+		    <div class="form-wizard">
+
+			    <div class="navbar steps">
+
+				    <div class="navbar-inner">
+
+					    <ul class="row-fluid nav nav-pills">
+
+						    <li class="span3 active">
+
+							    <a href="#tab1" data-toggle="tab" class="step active">
+
+							    <span class="number">1</span>
+
+							    <span class="desc"><i class="icon-ok"></i> 基本资料</span>   
+
+							    </a>
+
+						    </li>
+
+						    <li class="span3">
+
+							    <a href="#tab2" data-toggle="tab" class="step">
+
+							    <span class="number">2</span>
+
+							    <span class="desc"><i class="icon-ok"></i> 扩展信息</span>   
+
+							    </a>
+
+						    </li>
+
+						    <li class="span3">
+
+							    <a href="#tab3" data-toggle="tab" class="step">
+
+							    <span class="number">3</span>
+
+							    <span class="desc"><i class="icon-ok"></i>客户进度</span>   
+
+							    </a>
+
+						    </li>
+
+						    <li class="span3">
+
+							    <a href="#tab4" data-toggle="tab" class="step">
+
+							    <span class="number">4</span>
+
+							    <span class="desc"><i class="icon-ok"></i> 联系提醒</span>   
+
+							    </a> 
+
+						    </li>
+
+					    </ul>
+
+				    </div>
+
+			    </div>
+
+			    <div id="bar" class="progress progress-success progress-striped">
+
+				    <div class="bar" style="width: 25%;"></div>
+
+			    </div>
+
+			    <div class="tab-content">
+
+				    <div class="alert alert-error hide">
+
+					    <button class="close" data-dismiss="alert"></button>
+
+					    请根据以下提示修改错误!
+
+				    </div>
+
+				    <div class="alert alert-success hide">
+
+					    <button class="close" data-dismiss="alert"></button>
+
+					    保存成功!
+
+				    </div>
+      
+				    <div class="tab-pane active" id="tab1">  
+					    <div class="control-group">
+
+						    <label class="control-label">客户名称:<span class="required">*</span></label>
+
+						    <div class="controls">
+
+							    <input type="text" id="txtCname" class="span6 m-wrap fieldItem" field="Cname"  name="Cname" value="">
+
+							    <span class="help-inline">请填写客户名称.</span>
+
+						    </div>
+
+					    </div>
+
+					    <div class="control-group">
+
+						    <label class="control-label">手机号:<span class="required">*</span></label>
+
+						    <div class="controls">
+
+							    <input type="text" class="span6 m-wrap fieldItem" name="Mobile"  field="Mobile" maxlength="11"  id="txtMobile">
+
+							    <span class="help-inline">请填写客户手机号.</span>
+
+						    </div>
+
+					    </div>
+
+					    <div class="control-group">
+
+						    <label class="control-label">地址:<span class="required">*</span></label>
+
+						    <div class="controls">
+
+							    <input id="txtAddress" type="text" class="span6 m-wrap fieldItem" field="Address" name="Address">
+
+							    <span class="help-inline">请填写客户地址.</span>
+
+						    </div>
+
+					    </div> 
+				    </div>
+
+				    <div class="tab-pane" id="tab2" >  
+                    
+
+				    </div>
+
+				    <div class="tab-pane" id="tab3">  
+                        <input type="hidden" id="txtValue" name="txtValue"  class="fieldItem"   />
+                        <input type="hidden" id="txtScore" name="Score" value="0" class="fieldItem"   />
+					    <div class="portlet box green">
+
+							<div class="portlet-title">
+
+								<div class="caption"><i class="icon-reorder"></i></div>
+
+							</div>
+
+							<div class="portlet-body" id="apptab3">
+						       <div class='accordion in collapse' id='accordion1' style='height: auto;'>
+						       </div>
+							</div>
+
+						</div>
+				    </div>
+
+				    <div class="tab-pane" id="tab4">
+                                             
+					    <div class="control-group">
+
+						    <label class="control-label">客户来源:</label>
+                            <div class="controls">
+                                <select name="ClientSourceCode" id="txtClientSourceCode" class="fieldItem" field="ClientSourceCode"> 
+                                </select> 
+                            </div>
+					    </div>
+                        <div class="control-group">
+                        <label class="control-label" >客户评级:</label>
+                            <div class="controls">
+                                <select name="IntentionLevel" id="txtIntentionLevel" class="fieldItem" field="IntentionLevel"> 
+                                </select> 
+                            </div>
+					    </div>
+                        <!--     <div class="control-group">
+						    <label class="control-label">客户来源:</label>
+                            <div class="controls">
+                                <select name="ClientSourceCode" id="Select1" class="fieldItem" field="ClientSourceCode"> 
+                                </select> 
+                            </div>
+					    </div>-->
+                        <div class="control-group"  style="display:none;" id="hidli"> 
+                            <label class="control-label">介绍人:</label> 
+                            <div class="controls">
+                                 <input type="text" id="txtIntroduceName"  name="IntroduceName" tabindex="50" class="fieldItem" field="IntroduceName" />
+                            </div> 
+                        </div> 
+                        <div class="control-group"  style="display:none;" id="hidli1"> 
+                            <label class="control-label">介绍人电话:</label> 
+                            <div class="controls">
+                                 <input type="text" onkeydown="if(event.keyCode==13) $('#txtDescription').focus();" id="txtIntroduceMobile" name="IntroduceMobile" tabindex="51" class="fieldItem" field="IntroduceMobile" />
+                            </div> 
+                        </div> 
+                        <div class="control-group"  style="display:none;" id="hidli2"> 
+                            <label class="control-label">第三方:</label> 
+                            <div class="controls">
+                                  <input type="hidden"  id="txtthird" name="ClientSource1" class="fieldItem" field="ClientSource1" />
+                                  <input type="combo"    tabindex="50" id="txtthirdCode" name="ClientSourceCode1" class="easyui-combobox fieldItem readonly"
+                                        field="ClientSourceCode1" />
+                            </div> 
+                        </div>   
+					    <div class="control-group">
+
+						    <label class="control-label">交流情况:</label>
+
+						    <div class="controls">
+
+							     <textarea tabindex="52" cols="4" rows="4" name="Description" id="txtDescription" class="fieldItem"
+                                field="Description" style="width:400px"  ></textarea> 
+
+						    </div>
+
+					    </div> 
+                        <div class="control-group">
+
+						    <label class="control-label">下次回访时间:</label> 
+						    <div class="controls">
+                            <div class="input-append date form_datetime">
+												<input style="height:32px;" size="32" type="text" id="txtAlertDate" value="" readonly="" field="AlertDate" class="m-wrap fieldItem">
+												<span class="add-on"><i class="icon-calendar"></i></span>
+											</div>
+                                <select name="HM" id="txtHM" size="1" tabindex="53" class=" fieldItem hm" field="HM" style="width: 100px;"></select> 
+								 <!--<input type="checkbox" id="txtMsgFlag"  tabindex="54" name="MsgFlag" class="fieldItem" title='是否短信提醒' field="MsgFlag" />是否短信提醒-->
+                            </div>
+					    </div>
+					    <div class="control-group">
+
+						    <label class="control-label">联系计划:</label>
+
+						    <div class="controls">
+
+                          
+							   <input type="text" tabindex="55" name="AlertContent" id="txtAlertContent" class="span6 m-wrap  fieldItem"
+                                field="AlertContent" />
+                                <span class="help-inline">请填写联系计划.</span>
+						    </div>
+
+					    </div>
+
+												 
+
+				  
+
+			    </div>
+
+			    <div class="form-actions clearfix">
+
+				    <a href="javascript:;" class="btn button-previous" style="display: none;">
+
+				    <i class="m-icon-swapleft"></i> 上一页 
+
+				    </a>
+
+				    <a href="javascript:;" class="btn blue button-next">
+
+				    下一页 <i class="m-icon-swapright m-icon-white"></i>
+
+				    </a>
+
+				    <a href="javascript:;" class="btn green button-submit" style="display: none;">
+
+				    保存 <i class="m-icon-swapright m-icon-white"></i>
+
+				    </a>
+
+			    </div>
+
+		    </div>
+
+	    </form>
+
+    </div>
+    	</div>					</div>	</div>
+        </body><!-- END BODY -->
+</html>

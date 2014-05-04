@@ -1,0 +1,21 @@
+<div id="wind" class="easyui-window" title="编辑"
+       data-options="modal:true,closed:true,iconCls:'icon-save',collapsible:false,minimizable:false" 
+       style="width:400px;height:300px;padding:10px;">
+				<div class="easyui-layout" data-options="fit:true">
+  <form id="windform"  method="post" action="Ajax.aspx">
+			<div data-options="region:'center',split:true">
+            
+            <ul>
+            <li> <a>交易编号:</a><input type="text" name="txtTid" id="txtTid" readonly="true"/></li>
+            <li> <a>&nbsp;&nbsp;&nbsp;&nbsp;标题:</a><input type="text" id="txtTitle" name="txtTitle" /></li>
+            <li> <a>商品总价:</a><input type="text" name="txtPrice" id="txtPrice"/></li>
+            <li> <a>优惠金额:</a><input type="text" name="txtDiscountFee" id="txtDiscountFee"/></li>
+            <li> <a>实付金额:</a><input type="text" name="txtPayment" id="txtPayment" /></li>
+            <li> <a>&nbsp;&nbsp;&nbsp;&nbsp;数量:</a><input type="text" name="txtNum" id="txtNum" /></li>
+            </ul>
+            </div>
+			<div data-options="region:'south',border:false" style="text-align:right;padding:5px 0 0;">
+				<a class="easyui-linkbutton" id="btnSave" data-options="iconCls:'icon-save'">保存</a>
+				<a class="easyui-linkbutton" data-options="iconCls:'icon-cancel'" href="javascript:void(0)" onclick="javascript: $('#wind').window('close');">取消</a>
+			</div>
+            </form></div>
